@@ -1,0 +1,14 @@
+name: APOD Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  apod-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@4
+      - name: Post today's APOD to Slack (test)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node scripts/apod-to-slack.js
