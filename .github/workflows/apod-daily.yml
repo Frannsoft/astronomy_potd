@@ -9,7 +9,7 @@ jobs:
   apod:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@4
+      - uses: actions/checkout@v4
       - name: Post APOD to Slack
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
