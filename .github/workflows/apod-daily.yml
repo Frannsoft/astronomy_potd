@@ -1,0 +1,16 @@
+name: APOD Daily
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  apod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@4
+      - name: Post APOD to Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node scripts/apod-to-slack.js
